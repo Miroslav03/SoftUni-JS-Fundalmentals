@@ -1,2 +1,3 @@
 # SoftUni-Fundalmentals-
-Problems from Js Fundamentals SoftUni
+
+This will be my repo for star problems in JS Fundamentals
