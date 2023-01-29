@@ -1,0 +1,21 @@
+1.	Echo Type
+Write a JS function that takes one parameter and prints on two lines the type of the parameter and then one of the following:
+•	If the parameter type is either string or number, print its value
+•	Otherwise, print the text 'Parameter is not suitable for printing'
+
+2.	Concatenate Names
+Write a function, which receives two names as string parameters and a delimiter. Print the names joined by the delimiter.
+
+3. You will receive 3 parameters (string, char, string).
+The first string will be a word with a missing char replaced with an underscore '_'.
+You have to replace the missing character (underscore) of the first string with the character passed as the second parameter and compare the result with the second string.
+If they are equals, you should print "Matched", otherwise print "Not Matched".
+
+4. You will receive 3 numbers. Your task is to find their sum and print result to the console in the following format:
+`{sum} - {type of the number (Integer or Float)}`
+
+5. Write a function, which as input will receive a number.
+Check and print if it is amazing or not into the following format: 
+	"{number} Amazing? {True or False}"
+An amazing number includes the digit 9 the sum of its digits. 
+Examples for amazing numbers are 1233 (1 + 2 + 3 + 3 = 9), 583472 (5 + 8 + 3 + 4 + 7 + 2 = 29)
