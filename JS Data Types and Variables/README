@@ -6,15 +6,18 @@ Write a JS function that takes one parameter and prints on two lines the type of
 2.	Concatenate Names
 Write a function, which receives two names as string parameters and a delimiter. Print the names joined by the delimiter.
 
-3. You will receive 3 parameters (string, char, string).
+3.	Right Place
+ You will receive 3 parameters (string, char, string).
 The first string will be a word with a missing char replaced with an underscore '_'.
 You have to replace the missing character (underscore) of the first string with the character passed as the second parameter and compare the result with the second string.
 If they are equals, you should print "Matched", otherwise print "Not Matched".
 
-4. You will receive 3 numbers. Your task is to find their sum and print result to the console in the following format:
+4.	Integer and Float
+ You will receive 3 numbers. Your task is to find their sum and print result to the console in the following format:
 `{sum} - {type of the number (Integer or Float)}`
 
-5. Write a function, which as input will receive a number.
+5. 	Amazing Numbers
+Write a function, which as input will receive a number.
 Check and print if it is amazing or not into the following format: 
 	"{number} Amazing? {True or False}"
 An amazing number includes the digit 9 the sum of its digits. 
@@ -32,3 +35,19 @@ The song duration in seconds is calculate by the given formula:
 As output, you should print the following message:
       `The plate was rotated {rotations} times.`
 Rotations should be rounded up.
+
+7.	Required reading
+ Write a function to help Ivan calculate how many hours a day he has to spend reading the necessary literature from the list given for the summer vacation.
+As input, you will receive 3 parameters: 
+•	Number of pages of the current book - integer [1… 1000] 
+•	Pages read in 1 hour - integer [1… 1000]
+•	The number of days for which you must read the book -  integer [1… 1000]
+As output print on the console the number of hours, that Ivan has to read each day.
+
+8.	Centuries to Minutes
+Write a program that receives a number of centuries and converts it to years, days, hours, and minutes.
+
+9.  Write a program that receives a number n.  For all numbers in the range [1…n] print the number and if it is special or not (True / False).
+•	A number is special when its sum of digits is 5, 7 or 11.
+
+10. Write a program that receives a string of number n and print all triples of the first n small Latin letters, ordered alphabetically:
