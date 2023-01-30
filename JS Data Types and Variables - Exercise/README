@@ -21,6 +21,3 @@ Write a program that takes 3 parameters (characters) and prints them in reversed
 7.	Lower or Upper
 Write a function that prints whether a given character is upper-case or lower-case.
 
-8.	*Calculator
-Write a function that receives 3 parameters: a number, an operator (string), and another number.
-The operator can be:  '+', '-', '/', '*'. Print the result of the calculation on the console formatted to the second decimal point.
