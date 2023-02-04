@@ -8,7 +8,7 @@ function sadsa(){
       flag=false;
       break
     }
-    
+    //casdasdas
   }
 console.log(flag);
   
