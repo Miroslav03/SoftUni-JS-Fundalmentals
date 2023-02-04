@@ -44,9 +44,7 @@ function sequenceOfElements(array){
                     if(lengthCounter>currentHighest){
                         currentHighest=lengthCounter
                     }
-                   
-                    
-                    
+                      
                 }else {
                     if(lengthCounter==0){
                         i+=lengthCounter
