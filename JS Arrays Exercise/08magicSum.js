@@ -11,9 +11,9 @@ function magicSum(array,n){
                 buffArr=[]
         }
     }
-
+        
     }
 }
-magicSum([1, 2, 3, 4, 5, 6],
+magicSum([3, 2, 3, 4, 5, 6],
     6
     )

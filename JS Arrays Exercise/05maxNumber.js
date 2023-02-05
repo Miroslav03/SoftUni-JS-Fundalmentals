@@ -3,7 +3,7 @@ function maxNumber(array){
     for (let i = 0; i < array.length; i++) {
         if(array.length==1){
             console.log(array[0]);
-            break
+            break;
         }
         let element = array[i];
         for (var j = i+1 ;j <array.length; j++) {

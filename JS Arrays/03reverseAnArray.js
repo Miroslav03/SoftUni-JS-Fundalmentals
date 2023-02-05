@@ -7,7 +7,7 @@ function reverseAnArray(n,arr){
     }
 
     console.log(arr1.join(` `));
-
+    
 
 }
 reverseAnArray(3, [10, 20, 30, 40, 50])
