@@ -1,5 +1,7 @@
 function lowerOrUpper(symbol){
 
+    let string=``
+    
     let char=symbol
 
     let ASCInumber=char.charCodeAt(char)

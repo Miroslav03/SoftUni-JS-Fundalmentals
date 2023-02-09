@@ -1,0 +1,52 @@
+1. Smallest of Three Numbers
+Write a function that receives three integers and prints the smallest number. Use an appropriate name for the function.
+
+2. Add and Subtract
+
+You will receive three integer numbers.
+
+Write a function sum() to calculate the sum of the first two integers and a function subtract(),
+which subtracts the result of the function the sum() and the third integer.
+
+3. Characters in Range
+
+Write a function that receives two characters and prints on a single line all the characters in between them according to the ASCII code.
+Keep in mind that the second character code might be before the first one inside the ASCII table.
+
+4. Odd and Even Sum
+
+You will receive a single number. You have to write a function, that returns the sum of all even and all odd digits from that number.
+
+5. Palindrome Integers
+
+A palindrome is a number, which reads the same backward as forward, such as 323 or 1001. Write a function, which receives an array of positive integers and checks if each integer is a palindrome or not.
+
+Output
+
+· If the current integer is a palindrome, print: "true"
+
+· Otherwise, print: "false"
+
+6. Password Validator
+
+Write a function that checks if a given password is valid. Password validations are:
+
+· The length should be 6 - 10 characters (inclusive)
+
+· It should consist only of letters and digits
+
+· It should have at least 2 digits
+
+If a password is a valid print: "Password is valid".
+
+If it is NOT valid, for every unfulfilled rule print a message:
+
+· "Password must be between 6 and 10 characters"
+
+· "Password must consist only of letters and digits"
+
+· "Password must have at least 2 digits"
+
+7. NxN Matrix
+
+Write a function that receives a single integer number n and prints nxn matrix with that number.
