@@ -59,4 +59,33 @@ function equalArrays(arr1,arr2){
   }
   console.log(checker);
 }
-equalArrays([1,2,3,4,5],[1,2,1,4,5])
+equalArrays //([1,2,3,4,5],[1,2,1,4,5])
+
+function chekIfNumIsNegative(n1,n2,n3){
+   
+    let sign=`Positive`
+    let isNumNegative=n1<0
+    sign = chekAndChangeSigh(sign,isNumNegative)
+    
+    let isNum2Negative=n2<0
+    sign = chekAndChangeSigh(sign,isNum2Negative)
+    
+    let isNum3Negative=n3<0
+    sign = chekAndChangeSigh(sign,isNum3Negative)
+
+    return sign
+
+    function chekAndChangeSigh(sign,shouldChange){s
+        if(shouldChange===false){
+          return sign;
+        }
+
+        if(sign==`Positive`){
+          sign=`Negative`
+        }else{
+          sign=`Positive`
+        }
+        return sign;
+    }
+
+}console.log(chekIfNumIsNegative(-1,-2,3))
