@@ -40,4 +40,4 @@ function passwordValidator(string) {
         console.log(`Password is valid`);
     }
 
-} passwordValidator('MyPs$');
+} passwordValidator('aa12');
