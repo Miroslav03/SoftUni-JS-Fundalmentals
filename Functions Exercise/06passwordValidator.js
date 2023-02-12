@@ -20,15 +20,15 @@ function passwordValidator(string) {
         console.log(`Password must be between 6 and 10 characters`);
     }
 
-    for (let i = 0; i < string.length; i++) {
+    for (let i = 1; i <= string.length; i++) {
         let element = string[i];
         let numberElement = Number(string[i])
         if (element == numberElement) {
             numberCount++
         }
-        if (numberCount == 2) {
+        if (numberCount >= 2) {
             areTwoDigits = true
-            break
+
         }
     }
 
@@ -40,4 +40,4 @@ function passwordValidator(string) {
         console.log(`Password is valid`);
     }
 
-} passwordValidator('aa12');
+} passwordValidator('12345');
