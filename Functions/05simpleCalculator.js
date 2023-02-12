@@ -16,7 +16,7 @@ function simpleCalculator(num1, num2, operator) {
         finalResult = subtract(num1, num2);
     }
 
-    console.log(finalResult);
+    
     return finalResult;
 
 } simpleCalculator

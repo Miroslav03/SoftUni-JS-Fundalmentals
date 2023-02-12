@@ -12,7 +12,9 @@ function formatGrade(grade){
     }else if(grade>=5.50){
         gradeInWords=`Excellent`
     }
-
-    return(`${gradeInWords} (${grade})`)
-
-}formatGrade(3.33)
+    if(grade<3.00){
+        return (`${gradeInWords} (2)`)
+    }else{
+        return(`${gradeInWords} (${grade.toFixed(2)})`)
+    }
+}console.log(formatGrade(2.99))

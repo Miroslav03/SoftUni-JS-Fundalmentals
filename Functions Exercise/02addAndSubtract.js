@@ -5,7 +5,6 @@ function addAndSubtract(n1,n2,n3){
     let finalSum=sum(n1,n2)
     let finalSubtraact=subtract(finalSum,n3)
 
-    console.log(finalSubtraact);
     return finalSubtraact
 
 }addAndSubtract(23,6,10)
