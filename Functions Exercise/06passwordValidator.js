@@ -1,18 +1,17 @@
 function passwordValidator(string) {
     let numberCount = 0
     let digits = string.length
+    let areTwoDigits = false
+    let isDigitCountRight = false
 
     function onlyLettersAndNumbers(string) {
-
-        return /^[A-Za-z0-9]*$/.test(string);
-    }
+        return Boolean(string.match(/^[A-Za-z0-9]*$/));
+      }
 
     if (onlyLettersAndNumbers(string) === false) {
         console.log(`Password must consist only of letters and digits`);
     }
 
-    let areTwoDigits = false
-    let isDigitCountRight = false
 
     if (digits >= 6 && digits <= 10) {
         isDigitCountRight = true
@@ -20,7 +19,7 @@ function passwordValidator(string) {
         console.log(`Password must be between 6 and 10 characters`);
     }
 
-    for (let i = 1; i <= string.length; i++) {
+    for (let i = 0; i < string.length; i++) {
         let element = string[i];
         let numberElement = Number(string[i])
         if (element == numberElement) {
@@ -40,4 +39,4 @@ function passwordValidator(string) {
         console.log(`Password is valid`);
     }
 
-} passwordValidator('12345');
+} passwordValidator('');
