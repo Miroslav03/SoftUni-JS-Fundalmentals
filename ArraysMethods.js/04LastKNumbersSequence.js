@@ -1,13 +1,15 @@
-function lastKNumbersSequence(n, k) {
-    let arr = [1];
- 
-    while (arr.length < n) {
-        let element = arr
-            .slice(- k)
-            .reduce((sum, currEl) => sum += currEl, 0);
- 
-        arr.push(element);
+function lastKNumbersSequence(n,k){
+
+    let arr=[1]
+
+    while(arr.length<n){
+
+        let elment=arr.slice(-k).reduce((sum,i) => sum+=i,0)
+
+        arr.push(elment)
+
     }
- 
-    return console.log(arr.join(' '));
-}lastKNumbersSequence(5,5)
+
+    console.log(arr.join(` `));
+
+}lastKNumbersSequence(6,3)
