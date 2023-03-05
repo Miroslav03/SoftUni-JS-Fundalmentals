@@ -7,9 +7,7 @@ function Miro(firstName,lastName,age){
         age:age
     }    
 
-    for (const key of Object.keys(person)) {
-        console.log(`${key}: ${person[key]}`);
-    }
+   return person
 
     
 }Miro("Peter", "Pan","20")
