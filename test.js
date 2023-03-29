@@ -1,51 +1,63 @@
-function mirrorWords(array) {
-
-    let pairRegex = /([@#])(?<first>[a-zA-Z]{3,})\1\1(?<second>[a-zA-Z]{3,})\1/g
-    let filterRegex = /[@#]/
-    let searhingformatch = array.shift()
-    let pairs = searhingformatch.match(pairRegex)
-    let mirrors = new Map
-
-    if(pairs != null){
-        for (let i = 0; i < pairs.length; i++) {
-            let element = pairs[i].split(filterRegex).filter(a => a)
-            let firstWord = element[0]
-            let secondWord = element[1]
-    
-            let reversedSecond = reverse(secondWord)
-            let reversedFirst = reverse(firstWord)
-    
-            if (reversedSecond == firstWord || reversedFirst == secondWord) {
-                mirrors.set(firstWord, secondWord)
+function thePianist(input) {
+    let catalog = {};
+    let numberOfPieses = Number(input.shift());
+ 
+    for(let i = 0; i < numberOfPieses; i++) {
+        let [name, composer, key] = input.shift().split('|');
+ 
+        catalog[name] = {
+            composer, 
+            key
+        }
+    }
+ 
+    while (input[0] != "Stop") {
+        let tokens = input.shift().split('|');
+        let command = tokens[0];
+        let name = tokens[1];
+         if(command == "Add") {
+            if(catalog[name] != undefined) {
+                console.log(`${name} is already in the collection!`)
+            } else {
+                catalog[name] = {
+                    composer: tokens[2],
+                    key: tokens[3]
+                };
+ 
+                console.log(`${name} by ${tokens[2]} in ${tokens[3]} added to the collection!`)
+            }
+ 
+        }  else  if(command == "Remove") {
+            if(catalog[name] == undefined) {
+                console.log(`Invalid operation! ${name} does not exist in the collection.`)
+            } else {
+                delete catalog[name];
+                console.log(`Successfully removed ${name}!`)
+            }
+        } else if(command == "ChangeKey") {
+            if(catalog[name] == undefined) {
+                console.log(`Invalid operation! ${name} does not exist in the collection.`);
+            } else {
+                catalog[name].key = tokens[2];
+                console.log(`Changed the key of ${name} to ${tokens[2]}!`)
             }
         }
     }
-    
+ 
 
-    let mirrorsArr = []
-    if(pairs == null) {
-        console.log("No word pairs found!");
-        console.log("No mirror words!");
-    }else if (pairs.length > 0 && mirrors.size > 0) {
-        console.log(`${pairs.length} word pairs found!`);
-        for (const [first, second] of mirrors) {
-            let text = ``
-            text = `${first} <=> ${second}`
-            mirrorsArr.push(text)
-        }
-        console.log(`The mirror words are:`);
-        console.log(mirrorsArr.join(`, `));
-    } else if (pairs.length > 0 && mirrors.size <= 0) {
-        console.log(`${pairs.length} word pairs found!`);
-        console.log("No mirror words!");
+    for (let [name, piece] of Object.entries(catalog)) {
+        console.log(`${name} -> Composer: ${piece.composer}, Key: ${piece.key}`)
     }
-
-
-    function reverse(text) {
-        return text.split(``).reverse().join(``)
-    }
-
-} mirrorWords([
-    `#lol#lol# @#God@@doG@# #abC@@Cba# @Xyu@#uyX#`
-]
+}thePianist([
+    '3',
+    'Fur Elise|Beethoven|A Minor',
+    'Moonlight Sonata|Beethoven|C# Minor',
+    'Clair de Lune|Debussy|C# Minor',
+    'Add|Sonata No.2|Chopin|B Minor',
+    'Add|Hungarian Rhapsody No.2|Liszt|C# Minor',
+    'Add|Fur Elise|Beethoven|C# Minor',
+    'Remove|Clair de Lune',
+    'ChangeKey|Moonlight Sonata|C# Major',
+    'Stop'  
+  ]
 )
