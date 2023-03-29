@@ -13,3 +13,35 @@ Input / Constraints
 Output
 •	Print the proper output messages in the proper cases as described in the problem description
 
+2. You will be given a string representing some places on the map. You have to filter only the valid ones. A valid location is:
+•	Surrounded by "=" or "/" on both sides (the first and the last symbols must match)
+•	After the first "=" or "/" there should be only letters (the first must be upper-case, other letters could be upper or lower-case)
+•	The letters must be at least 3
+Example: In the string "=Hawai=/Cyprus/=Invalid/invalid==i5valid=/I5valid/=i=" only the first two locations are valid.
+After you have matched all the valid locations, you have to calculate travel points. They are calculated by summing the lengths of all the valid destinations that you have found on the map. 
+In the end, on the first line, print: "Destinations: {destinations joined by ', '}". 
+On the second line, print "Travel Points: {travel_points}".
+Input / Constraints
+•	You will receive a string representing the locations on the map
+•	JavaScript: you will receive a single parameter: string
+Output
+•	Print the messages described above
+
+3. On the first line, you will receive a number n. On the next n lines, you will be given some information about the plants that you have discovered in the format: "{plant}<->{rarity}". Store that information because you will need it later. If you receive a plant more than once, update its rarity.
+After that, until you receive the command "Exhibition", you will be given some of these commands:
+•	"Rate: {plant} - {rating}" – add the given rating to the plant (store all ratings)
+•	"Update: {plant} - {new_rarity}" – update the rarity of the plant with the new one
+•	"Reset: {plant}" – remove all the ratings of the given plant
+Note: If any given plant name is invalid, print "error"
+After the command "Exhibition", print the information that you have about the plants in the following format:
+"Plants for the exhibition:
+- {plant_name1}; Rarity: {rarity}; Rating: {average_rating}
+- {plant_name2}; Rarity: {rarity}; Rating: {average_rating}
+…
+- {plant_nameN}; Rarity: {rarity}; Rating: {average_rating}"
+The average rating should be formatted to the second decimal place.
+Input / Constraints
+•	You will receive the input as described above
+•	JavaScript: you will receive a list of strings
+Output
+•	Print the information about all plants as described above

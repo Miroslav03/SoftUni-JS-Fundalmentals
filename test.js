@@ -1,63 +1,79 @@
-function thePianist(input) {
-    let catalog = {};
-    let numberOfPieses = Number(input.shift());
- 
-    for(let i = 0; i < numberOfPieses; i++) {
-        let [name, composer, key] = input.shift().split('|');
- 
-        catalog[name] = {
-            composer, 
-            key
-        }
-    }
- 
-    while (input[0] != "Stop") {
-        let tokens = input.shift().split('|');
-        let command = tokens[0];
-        let name = tokens[1];
-         if(command == "Add") {
-            if(catalog[name] != undefined) {
-                console.log(`${name} is already in the collection!`)
-            } else {
-                catalog[name] = {
-                    composer: tokens[2],
-                    key: tokens[3]
-                };
- 
-                console.log(`${name} by ${tokens[2]} in ${tokens[3]} added to the collection!`)
-            }
- 
-        }  else  if(command == "Remove") {
-            if(catalog[name] == undefined) {
-                console.log(`Invalid operation! ${name} does not exist in the collection.`)
-            } else {
-                delete catalog[name];
-                console.log(`Successfully removed ${name}!`)
-            }
-        } else if(command == "ChangeKey") {
-            if(catalog[name] == undefined) {
-                console.log(`Invalid operation! ${name} does not exist in the collection.`);
-            } else {
-                catalog[name].key = tokens[2];
-                console.log(`Changed the key of ${name} to ${tokens[2]}!`)
-            }
-        }
-    }
- 
+function plantDiscovery(array) {
 
-    for (let [name, piece] of Object.entries(catalog)) {
-        console.log(`${name} -> Composer: ${piece.composer}, Key: ${piece.key}`)
+    let plantNumber = Number(array.shift())
+    let plantCollection = {}
+    for (let i = 0; i < plantNumber; i++) {
+        let element = array[i].split(`<->`)
+        let plantName = element[0]
+        let rarity = Number(element[1])
+
+        plantCollection[plantName] = {
+            rarity,
+            rating: 0,
+            ratinCount: 0
+        }
     }
-}thePianist([
-    '3',
-    'Fur Elise|Beethoven|A Minor',
-    'Moonlight Sonata|Beethoven|C# Minor',
-    'Clair de Lune|Debussy|C# Minor',
-    'Add|Sonata No.2|Chopin|B Minor',
-    'Add|Hungarian Rhapsody No.2|Liszt|C# Minor',
-    'Add|Fur Elise|Beethoven|C# Minor',
-    'Remove|Clair de Lune',
-    'ChangeKey|Moonlight Sonata|C# Major',
-    'Stop'  
-  ]
-)
+
+    let commandArr = array.slice(plantNumber)
+
+    for (let i = 0; i < commandArr.length; i++) {
+        let element = commandArr[i].split(` `).filter(a => a != `-`)
+        let command = element[0]
+        let commandValues = element.slice(1)
+
+        switch (command) {
+
+            case `Rate:`: {
+                let name = commandValues[0]
+                let rating = Number(commandValues[1])
+
+                if (plantCollection.hasOwnProperty(name)) {
+                    plantCollection[name].rating += rating
+                    plantCollection[name].ratinCount += 1
+                } else {
+                    console.log(`error`);
+                }
+                break;
+            }
+            case `Update:`: {
+                let name = commandValues[0]
+                let newRarity = Number(commandValues[1])
+                if (plantCollection.hasOwnProperty(name)) {
+                    plantCollection[name].rarity = newRarity
+                } else {
+                    console.log(`error`);
+                }
+
+                break;
+            } case `Reset:`: {
+                let name = commandValues[0]
+                if (plantCollection.hasOwnProperty(name)) {
+                    plantCollection[name].rating = 0
+                    plantCollection[name].ratinCount = 0
+                } else {
+                    console.log(`error`);
+                }
+                break;
+            } case `Exhibition`: {
+
+                console.log(`Plants for the exhibition:`);
+                for (const [name, value] of Object.entries(plantCollection)) {
+                    if (value.rating == 0 ) {
+                        console.log(`- ${name}; Rarity: ${value.rarity}; Rating: ${(0).toFixed(2)}`)
+                    } else {
+
+                        console.log(`- ${name}; Rarity: ${value.rarity}; Rating: ${(value.rating / value.ratinCount).toFixed(2)}`);
+                    }
+                }
+                return
+                de
+            }
+            default:{
+                console.log(`error`);
+            }
+
+        }
+    }
+
+
+}
