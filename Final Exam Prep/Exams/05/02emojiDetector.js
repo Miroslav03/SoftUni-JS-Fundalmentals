@@ -8,7 +8,7 @@ function emojiDetector(array){
         return sum;
     }
 
-    let pattern = /(:{2}|\*{2})(?<values>[A-Z][a-z]{2,})(\1)/g
+    let pattern = /(:{2}|\*{2})[A-Z]([a-z]{2,})\1/g
     let numberPattern = /\d/g
 
     let text = array.shift()
