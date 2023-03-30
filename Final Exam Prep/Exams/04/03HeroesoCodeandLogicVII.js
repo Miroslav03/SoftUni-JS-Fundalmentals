@@ -1,53 +1,17 @@
 function herosOfCode(array){
 
     let heroCount = Number(array.shift())
-    let party = new Map
-    function createHero(name,hp,mp){
-        let hero ={
-            name:name,
-            health:hp,
-            mana:mp ,
-            castSpell(mpNeeded,spellName){
-                if(this.mana>=mpNeeded){
-                    this.mana -= mpNeeded
-                    console.log(`${this.name} has successfully cast ${spellName} and now has ${this.mana} MP!`);
-                }else{
-                    console.log(`${this.name} does not have enough MP to cast ${spellName}!`);
-                }
-            },
-            takeDamage(damage,attacker){
-                if(this.health - damage >0){
-                    this.health -= damage
-                    console.log(`${this.name} was hit for ${damage} HP by ${attacker} and now has ${this.health} HP left!`);
-                }else{
-                    party.delete(this.name)
-                    console.log(`${this.name} has been killed by ${attacker}!`);
-                }
-            },
-            recharge(amount){
-                let diffrence = Math.min(200-this.mana,amount)
-                this.mana += diffrence
-                console.log(`${this.name} recharged for ${diffrence} MP!`)
-            },
-            heal(amount){
-                let diffrence = Math.min(100-this.health,amount)
-                this.health += diffrence
-                console.log(`${this.name} healed for ${diffrence} HP!`)
-            },
-            toString(){
-                console.log(`${this.name}\n  HP: ${this.health}\n  MP: ${this.mana}`);
-            }
-
-        }
-        return hero
-    }
+    let heros = {}
     for (let i = 0; i < heroCount; i++) {
         let element = array[i].split(` `)
         let name = element[0]
         let hp = Number(element[1])
         let mp =  Number(element[2])
-        let hero = createHero(name,hp,mp)
-        party.set(name,hero)
+
+        heros[name]= {
+            health:hp,
+            mana:mp
+        }
     }
     
     let commandsArr = array.slice(heroCount)
@@ -60,34 +24,45 @@ function herosOfCode(array){
         
         switch (command) {
             case `CastSpell`:{
-                let hero = party.get(name)
                 let mpNeeded = Number(commandValues[0])
                 let spellName = commandValues[1]
-                hero.castSpell(mpNeeded,spellName)
+                if(heros[name].mana>=mpNeeded){
+                    heros[name].mana -= mpNeeded
+                    console.log(`${name} has successfully cast ${spellName} and now has ${heros[name].mana} MP!`);
+                }else{
+                    console.log(`${name} does not have enough MP to cast ${spellName}!`);
+                }
                 break;
             }
             case `TakeDamage`:{
-                let hero = party.get(name)
                 let damage = Number(commandValues[0])
                 let attacker = commandValues[1]
-                hero.takeDamage(damage,attacker)
+                if(heros[name].health - damage >0){
+                    heros[name].health-= damage
+                    console.log(`${name} was hit for ${damage} HP by ${attacker} and now has ${heros[name].health} HP left!`);
+                }else{
+                    delete heros[name]
+                    console.log(`${name} has been killed by ${attacker}!`);
+                }
                 break;
             }
             case `Recharge`:{
-                let hero = party.get(name)
                 let amount = Number(commandValues[0])
-                hero.recharge(amount)
+                let diffrence = Math.min(200-heros[name].mana,amount)
+                heros[name].mana += diffrence
+                console.log(`${name} recharged for ${diffrence} MP!`)
                 break;
             }
             case `Heal`:{
-                let hero = party.get(name)
                 let amount = Number(commandValues[0])
-                hero.heal(amount)
+                let diffrence = Math.min(100-heros[name].health,amount)
+                heros[name].health += diffrence
+                console.log(`${name} healed for ${diffrence} HP!`)
                 break;
             }
             case `End`:{
-                for (const hero of party.values()) {
-                    hero.toString()
+                for (const [hero,arr] of Object.entries(heros)) {
+                    console.log(`${hero}\n  HP: ${arr.health}\n  MP: ${arr.mana}`)
                 }
                 return
                 
