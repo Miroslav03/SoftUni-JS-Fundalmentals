@@ -6,7 +6,7 @@ function adAstra(array) {
     let caloriesSum = 0
     let arr = []
     let match = regex.exec(string)
-
+    
     while (match) {
         caloriesSum += Number(match[4])
         arr.push({ name: match[2], date: match[3], calories: match[4] })

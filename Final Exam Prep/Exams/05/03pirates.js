@@ -75,8 +75,7 @@ function pirates(array) {
         
     }
 
-
-
+    
 
 } pirates(["Tortuga||345000||1250",
 "Santo Domingo||240000||630",

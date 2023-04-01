@@ -5,4 +5,4 @@ function nameMatch(string){
 
     console.log(match.join(` `));
 
-}nameMatch("Ivan Ivanov, Ivan ivanov, ivan Ivanov, IVan Ivanov, Test Testov, Ivan	Ivanov")
+}nameMatch("ivan ivanov, Ivan ivanov, ivan Ivanov, IVan Ivanov, Ivan IvAnov, Ivan	Ivanov")
