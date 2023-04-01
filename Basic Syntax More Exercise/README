@@ -1,0 +1,18 @@
+1.	Sort Numbers
+Receive three numbers and you have to sort them in descending order. Print each number on a new line.
+
+2.	English Name of the Last Digit	
+Write a function that returns the English name of the last digit of a given number. Write a program that receives a number and prints the returned value from this function.
+
+3.	Next Day
+Write a JS function that calculates the date of the next day by given year, month, and day.
+The input comes as three number parameters. The first element is the year, the second is the month and the third is the day.
+The output should be returned as a result of your function.
+
+4.	Reverse String
+Write a program that reverses a string and prints it on the console.
+
+5.	Distance Between Points
+Write a JS function that calculates the distance between two points by given x and y coordinates. 
+The input comes as four number elements in the format x1, y1, x2, y2. Each pair of elements are the coordinates of a point in 2D space.
+The output should be returned as a result of your function.

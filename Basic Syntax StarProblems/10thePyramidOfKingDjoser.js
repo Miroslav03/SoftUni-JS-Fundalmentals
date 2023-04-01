@@ -18,7 +18,7 @@ function pyramid(parameters, increment) {
     let lapis=0
     let gold = 0
     for (let i = parameters; parameters > 0; parameters-=2) {
-        if(parameters == 2||parameters==1){
+        if(parameters == 2||parameters==1){ 
             if(parameters == 2){
                 height++
                 gold = (parameters*parameters)*increment
