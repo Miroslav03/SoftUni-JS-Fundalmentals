@@ -1,42 +1,49 @@
 function arrayManipulation(array) {
-    let things = []
+
+    let arr = array.shift()
+    arr = arr.split(` `).map(Number)
     
-    let allThingsToDo = array.slice(-4)
-    array.splice(-4)
+    for (let i = 0; i < array.length; i++) {
+        const element = array[i].split(` `);
+        let command = element[0]
+        let values = element.slice(1)
 
-    for (let i = 0; i < allThingsToDo.length; i++) {
-        let element = allThingsToDo[i];
-
-        let result = element.match(/\d+/g).map(result => parseInt(result));
-        things=things.concat(result)
-        
-    }
-    for (let j = 0; j < array.length; j++) {
-        let element = array[j];
-        for (let j = 0; j < element.length; j++) {
-            array = element.split(/\s+/).map(Number);
+        switch (command) {
+            case `Add`:{
+                let number = Number(values[0])
+                arr.push(number)
+                break;
+            }
+            case `Remove`:{
+                let number = Number(values[0])
+                arr = arr.filter(a => a != number)
+                break;
+            }
+            case `RemoveAt`:{
+                let index = Number(values[0])
+                let first = arr.slice(0,index)
+                let second = arr.slice(index+1)
+                arr = first.concat(second)
+                break;
+            }
+            case `Insert`:{
+                let number = Number(values[0])
+                let index = Number(values[1])
+                let first = arr.slice(0,index)
+                first.push(number)
+                let second = arr.slice(index)
+                arr = first.concat(second)
+                break;
+            }
+                
         }
     }
-    
-    //remove a specific element from an array
-    let index = array.indexOf(things[1])
-    if (index !== -1) {
-        array.splice(index, 1);
-    }
+    return console.log(arr.join(` `));
 
-
-    array.splice(things[2], 1);//remove an element from specific index
-
-    array.splice(things[4], 0, things[3]);//add a specific alement in a specific index in an array 
-
-    array.push(things[0])//add
-
-
-     return array.join(` `);
-
-} arrayManipulation(['4 19 2 53 6 43',
-'Add 3',
-'Remove 2',
-'RemoveAt 1',
-'Insert 8 3'])
+} arrayManipulation(['6 12 2 65 6 42',
+'Add 8',
+'Remove 12',
+'RemoveAt 3',
+'Insert 6 2']
+)
 
