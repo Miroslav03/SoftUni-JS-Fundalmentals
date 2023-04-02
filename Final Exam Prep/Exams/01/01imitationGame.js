@@ -11,11 +11,8 @@ function imitationGame(array) {
             case 'ChangeAll': {
                 let substring = commandValues[0]
                 let replacement = commandValues[1]
-                if (string.includes(substring)) {
-                    while (string.includes(substring)) {
-                        string = string.replace(substring, replacement)
-                    }
-                }
+                string = string.split(substring).join(replacement);
+                
                 break;
             }
             case 'Insert': {
@@ -28,13 +25,13 @@ function imitationGame(array) {
             }
             case 'Move': {
                 let index = Number(commandValues[0])
-                let moved = string.slice(0,index)
+                let moved = string.slice(0, index)
                 let secondHalf = string.slice(index)
                 string = secondHalf + moved
                 break;
             }
             case 'Decode': {
-               return console.log(`The decrypted message is: ${string}`);
+                return console.log(`The decrypted message is: ${string}`);
             }
 
         }
@@ -42,12 +39,12 @@ function imitationGame(array) {
 
 
 } imitationGame([
-    'owyouh',
-    'Move|2',
+    'zzHe',
+    'ChangeAll|z|l',
+    'Insert|2|o',
     'Move|3',
-    'Insert|3|are',
-    'Insert|9|?',
-    'Decode'
+    'Decode',
   ]
   
+
 )
