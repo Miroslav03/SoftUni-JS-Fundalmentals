@@ -29,12 +29,6 @@ function problem(array) {
 
     }
 
-    //for (const [name, arr] of Object.entries(collection)) {
-    //    console.log(`${name}, The ${arr.title}`);
-    //    console.log(`>> Strength: ${arr.strength}`);
-    //    console.log(`>> Armor: ${arr.armor}`);
-    //}
-
 } problem(['3',
 '|STEFAN|:#H1gh Overseer#',
 '|IVAN|:#Master detective#',
