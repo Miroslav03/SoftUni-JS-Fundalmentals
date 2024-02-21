@@ -1,5 +1,6 @@
 # SoftUni-Fundalmentals-JavaScript
-Course Overview
+
+Course Overview:
 
 Data Types and Variables: Understanding different data types in JavaScript and how to declare and use variables to store data.
 
